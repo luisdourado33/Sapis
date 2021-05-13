@@ -2,7 +2,7 @@
 
 <b>Universidade Federal de Mato Grosso</b> - Faculdade de Engenharia
 Sistema de Automação para Irrigação de Solos | Sistemas Embarcados <br>
-<b>Docente: Dr. Jésus Franco Bueno</b>
+<b>Docente: Dr. Jésus Franco Bueno</b>\
 <b>Alunos:</b>
 - David dos Reis Pereira
 - Luís Antônio S. Dourado
