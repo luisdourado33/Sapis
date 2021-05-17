@@ -44,7 +44,7 @@ function formatDate(date) {
 
 import CardItem from '../../components/preferences/CardItem';
 
-const Preferences = () => {
+const Preferences: React.FC = (props) => {
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = React.useCallback(() => {

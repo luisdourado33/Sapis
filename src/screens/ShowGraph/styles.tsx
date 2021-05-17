@@ -98,3 +98,8 @@ export const SwitcherTitle = styled.Text`
   font-size: 15px;
   font-weight: bold;
 `;
+
+export const WrapperCard = styled.View`
+  flex-direction: column;
+  display: flex;
+`;

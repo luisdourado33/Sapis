@@ -72,7 +72,7 @@ const CardItem = (props) => {
   const { title, umidity, temperature } = props;
 
   return (
-    <Container onPress={() => alert('Hello World')}>
+    <Container>
       <CardImage {...props}>
         <View
           style={{

@@ -36,7 +36,7 @@ const AuthProvider: React.FC = ({ children }) => {
 };
 
 function handleLogoff() {
-  const { state, setState } = useContext(AuthContext);
+  //const { state, setState } = useContext(AuthContext);
   alert('LogOff');
 }
 

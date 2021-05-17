@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
-import { View, SafeAreaView, ScrollView, ImageBackground } from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  ScrollView,
+  ImageBackground,
+  Text,
+} from 'react-native';
 import {
   Title,
   IconButton,
@@ -22,9 +28,12 @@ import {
   Switcher,
   SwitcherButton,
   SwitcherTitle,
+  WrapperCard,
 } from './styles';
 
 import LineGraph from '../../components/dashboard/LineGraph';
+import CardItem from '../../components/dashboard/CardItem';
+import { CardGrid } from '../../screens/Dashboard/styles';
 
 import { colors } from '../../helpers/theme';
 import { IChannel, IFeed } from '../../../types';
@@ -38,6 +47,8 @@ const ShowGraph = () => {
   const { state } = useContext(AuthContext);
   const [dataChannel, setDataChannel] = useState<IPropsData>();
   const [visible, setVisible] = React.useState(false);
+  const [showMilho, setShowMilho] = React.useState(false);
+  const [showCafe, setShowCafe] = React.useState(false);
 
   const showDialog = () => setVisible(true);
 
@@ -124,19 +135,41 @@ const ShowGraph = () => {
             </Section>
           </ImageBackground>
           <Content>
-            <ContentTitle>Gráficos:</ContentTitle>
             <Switcher>
               <SwitcherButton onPress={showDialog} left light>
-                <SwitcherTitle>SEMANAL</SwitcherTitle>
+                <SwitcherTitle>Milho</SwitcherTitle>
               </SwitcherButton>
-              <SwitcherButton right dark>
-                <SwitcherTitle>MENSAL</SwitcherTitle>
+              <SwitcherButton dark>
+                <SwitcherTitle>Café</SwitcherTitle>
+              </SwitcherButton>
+              <SwitcherButton right light>
+                <SwitcherTitle>Trigo</SwitcherTitle>
               </SwitcherButton>
             </Switcher>
-            <LineGraph
-              channel={dataChannel?.channel}
-              feeds={dataChannel?.feeds}
-            />
+            <WrapperCard >
+              <CardItem onPress={() => alert('testestese')} title='Milho' umidity='45' temperature='40' />
+                <Text>Teste</Text>
+            </WrapperCard>
+            {showMilho &&
+              <>
+                <ContentTitle>Gráficos:</ContentTitle>
+                <LineGraph
+                  channel={dataChannel?.channel}
+                  feeds={dataChannel?.feeds}
+                />
+              </>}
+
+            <WrapperCard >
+              <CardItem onPress={() => alert('testestese')} title='Café' umidity='45' temperature='40' />
+            </WrapperCard>
+            {showMilho &&
+              <>
+                <ContentTitle>Gráficos:</ContentTitle>
+                <LineGraph
+                  channel={dataChannel?.channel}
+                  feeds={dataChannel?.feeds}
+                />
+              </>}
           </Content>
         </ScrollView>
         <Portal>
